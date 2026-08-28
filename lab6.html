@@ -1,240 +1,334 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
-    <title>Student Result</title>
 
-     
-    <script src="https://cdn.tailwindcss.com"></script>
+```
+<title>Student Result</title>
+
+<!-- Tailwind CSS CDN -->
+
+<script src="https://cdn.tailwindcss.com"></script>
+```
+
 </head>
 
 <body class="bg-gradient-to-br from-purple-600 to-blue-500">
 
-    <h1 class="text-2xl font-bold text-center text-white mt-6">
-        Practical-6<br>
-        Vinit Lonare<br>
-        CS25058
-    </h1>
+```
+<h1 class="text-2xl font-bold text-center text-white mt-6">
 
-    <h2 class="text-xl font-semibold text-center text-white mt-5 mb-5">
-        Student Result
-    </h2>
+    Practical-6<br>
 
-    <div class="w-fit mx-auto">
+    Vinit Lonare<br>
 
-        <form class="bg-gradient-to-br from-white to-purple-100 p-6 rounded-lg shadow-2xl">
+    CS25058
 
-            <table border="1" cellpadding="10"
-                   class="border-collapse border border-gray-400">
+</h1>
 
-                
-                <tr>
-                    <td class="border border-gray-400 font-semibold">
-                        Student Name
-                    </td>
+<h2 class="text-xl font-semibold text-center text-white mt-5 mb-5">
 
-                    <td class="border border-gray-400">
-                        <input type="text"
-                               name="name"
-                               class="border border-gray-300 p-2 rounded">
-                    </td>
-                </tr>
+    Student Result
 
-               
-                <tr>
-                    <td class="border border-gray-400 font-semibold">
-                        USN
-                    </td>
+</h2>
 
-                    <td class="border border-gray-400">
-                        <input type="text"
-                               name="USN"
-                               class="border border-gray-300 p-2 rounded">
-                    </td>
-                </tr>
- 
-                <tr class="bg-purple-200">
+<div class="w-fit mx-auto">
 
-                    <th class="border border-gray-400">
-                        Subject
-                    </th>
+    <form class="bg-gradient-to-br from-white to-purple-100 p-6 rounded-lg shadow-2xl">
 
-                    <th class="border border-gray-400">
-                        Marks
-                    </th>
+        <table border="1" cellpadding="10"
 
-                </tr>
+               class="border-collapse border border-gray-400">
 
-               
-                <tr>
-                    <td class="border border-gray-400">
-                        DMGT
-                    </td>
+            <tr>
 
-                    <td class="border border-gray-400">
-                        <input type="number"
-                               id="s1"
-                               name="dmgt"
-                               class="border border-gray-300 p-2 rounded w-24">
-                    </td>
-                </tr>
+                <td class="border border-gray-400 font-semibold">
 
-               
-                <tr>
-                    <td class="border border-gray-400">
-                        DSA
-                    </td>
+                    Student Name
 
-                    <td class="border border-gray-400">
-                        <input type="number"
-                               id="s2"
-                               name="dsa"
-                               class="border border-gray-300 p-2 rounded w-24">
-                    </td>
-                </tr>
- 
-                <tr>
-                    <td class="border border-gray-400">
-                        CAO
-                    </td>
+                </td>
 
-                    <td class="border border-gray-400">
-                        <input type="number"
-                               id="s3"
-                               name="cao"
-                               class="border border-gray-300 p-2 rounded w-24">
-                    </td>
-                </tr>
- 
-                <tr>
-                    <td class="border border-gray-400">
-                        ED
-                    </td>
+                <td class="border border-gray-400">
 
-                    <td class="border border-gray-400">
-                        <input type="number"
-                               id="s4"
-                               name="ed"
-                               class="border border-gray-300 p-2 rounded w-24">
-                    </td>
-                </tr>
+                    <input type="text"
 
-                 
-                <tr>
-                    <td class="border border-gray-400">
-                        ES
-                    </td>
+                           name="name"
 
-                    <td class="border border-gray-400">
-                        <input type="number"
-                               id="s5"
-                               name="es"
-                               class="border border-gray-300 p-2 rounded w-24">
-                    </td>
-                </tr>
+                           class="border border-gray-300 p-2 rounded">
 
-                 
-                <tr>
-                    <!-- total -->
-                    <td class="border border-gray-400 font-semibold">
-                        Total Marks
-                    </td>
+                </td>
 
-                    <td class="border border-gray-400">
-                        <span id="total">0</span>
-                    </td>
-                </tr>
+            </tr>
 
-                <!-- Percentage -->
-                <tr>
-                    <td class="border border-gray-400 font-semibold">
-                        Percentage
-                    </td>
+            <tr>
 
-                    <td class="border border-gray-400">
-                        <span id="percentage">0%</span>
-                    </td>
-                </tr>
+                <td class="border border-gray-400 font-semibold">
 
-                <!-- Grade -->
-                <tr>
-                    <td class="border border-gray-400 font-semibold">
-                        Grade
-                    </td>
+                    USN
 
-                    <td class="border border-gray-400">
-                        <span id="grade">-</span>
-                    </td>
-                </tr>
+                </td>
 
-                <!-- Buttons -->
-                <tr>
-                    <td colspan="2"
-                        class="border border-gray-400 text-center">
+                <td class="border border-gray-400">
 
-                        <input type="button"
-                               value="Calculate"
-                               onclick="cal()"
-                               class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded cursor-pointer">
+                    <input type="text"
 
-                        <input type="reset"
-                               value="Reset"
-                               class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded cursor-pointer">
+                           name="USN"
 
-                    </td>
-                </tr>
+                           class="border border-gray-300 p-2 rounded">
 
-            </table>
+                </td>
 
-        </form>
+            </tr>
 
-    </div>
+            <tr class="bg-purple-200">
 
-    <script>
+                <th class="border border-gray-400">
 
-        function cal()
+                    Subject
+
+                </th>
+
+                <th class="border border-gray-400">
+
+                    Marks
+
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <td class="border border-gray-400">DMGT</td>
+
+                <td class="border border-gray-400">
+
+                    <input type="number" id="s1"
+
+                           name="dmgt"
+
+                           class="border border-gray-300 p-2 rounded w-24">
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td class="border border-gray-400">DSA</td>
+
+                <td class="border border-gray-400">
+
+                    <input type="number" id="s2"
+
+                           name="dsa"
+
+                           class="border border-gray-300 p-2 rounded w-24">
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td class="border border-gray-400">CAO</td>
+
+                <td class="border border-gray-400">
+
+                    <input type="number" id="s3"
+
+                           name="cao"
+
+                           class="border border-gray-300 p-2 rounded w-24">
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td class="border border-gray-400">ED</td>
+
+                <td class="border border-gray-400">
+
+                    <input type="number" id="s4"
+
+                           name="ed"
+
+                           class="border border-gray-300 p-2 rounded w-24">
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td class="border border-gray-400">ES</td>
+
+                <td class="border border-gray-400">
+
+                    <input type="number" id="s5"
+
+                           name="es"
+
+                           class="border border-gray-300 p-2 rounded w-24">
+
+                </td>
+
+            </tr>
+
+            <!-- Result -->
+
+            <tr>
+
+                <td class="border border-gray-400 font-semibold">
+
+                    Total
+
+                </td>
+
+                <td class="border border-gray-400">
+
+                    <span id="total">0</span>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td class="border border-gray-400 font-semibold">
+
+                    Percentage
+
+                </td>
+
+                <td class="border border-gray-400">
+
+                    <span id="percentage">0%</span>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td class="border border-gray-400 font-semibold">
+
+                    Grade
+
+                </td>
+
+                <td class="border border-gray-400">
+
+                    <span id="grade">-</span>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td colspan="2"
+
+                    class="border border-gray-400 text-center">
+
+                    <input type="button"
+
+                           value="Calculate"
+
+                           onclick="cal()"
+
+                           class="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer">
+
+                    <input type="reset"
+
+                           value="Reset"
+
+                           class="bg-gray-600 text-white px-4 py-2 rounded cursor-pointer">
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    </form>
+
+</div>
+
+<script>
+
+    function cal()
+
+    {
+
+        let sub1 = Number(document.getElementById("s1").value);
+
+        let sub2 = Number(document.getElementById("s2").value);
+
+        let sub3 = Number(document.getElementById("s3").value);
+
+        let sub4 = Number(document.getElementById("s4").value);
+
+        let sub5 = Number(document.getElementById("s5").value);
+
+        let total = sub1 + sub2 + sub3 + sub4 + sub5;
+
+        let per = total / 5;
+
+        let grade;
+
+        if(per >= 90)
+
         {
-            let sub1 = Number(document.getElementById("s1").value);
-            let sub2 = Number(document.getElementById("s2").value);
-            let sub3 = Number(document.getElementById("s3").value);
-            let sub4 = Number(document.getElementById("s4").value);
-            let sub5 = Number(document.getElementById("s5").value);
 
-            let total = sub1 + sub2 + sub3 + sub4 + sub5;
+            grade = "A";
 
-            let per = total / 5;
-
-            let grade;
-
-            if(per >= 90)
-            {
-                grade = "A";
-            }
-            else if(per >= 80)
-            {
-                grade = "B";
-            }
-            else if(per >= 70)
-            {
-                grade = "C";
-            }
-            else if(per >= 60)
-            {
-                grade = "D";
-            }
-            else
-            {
-                grade = "F";
-            }
-
-            document.getElementById("total").innerHTML = total;
-
-            document.getElementById("percentage").innerHTML = per + "%";
-
-            document.getElementById("grade").innerHTML = grade;
         }
 
-    </script>
+        else if(per >= 80)
+
+        {
+
+            grade = "B";
+
+        }
+
+        else if(per >= 70)
+
+        {
+
+            grade = "C";
+
+        }
+
+        else if(per >= 60)
+
+        {
+
+            grade = "D";
+
+        }
+
+        else
+
+        {
+
+            grade = "F";
+
+        }
+
+        document.getElementById("total").innerHTML = total;
+
+        document.getElementById("percentage").innerHTML = per + "%";
+
+        document.getElementById("grade").innerHTML = grade;
+
+    }
+
+</script>
+```
 
 </body>
 
