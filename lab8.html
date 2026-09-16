@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-blue-50">
+
+    <div class="max-w-md mx-auto mt-10 bg-white p-6 rounded shadow">
+
+        <h2 class="text-2xl font-bold mb-5 text-center text-blue-700">
+            Vinit Lonare CS25058
+        </h2>
+
+        <form id="registrationForm">
+
+            <!-- Name -->
+            <label class="text-gray-700">Student Name</label>
+            <input type="text" id="name"
+                class="w-full border border-blue-300 p-2 mb-3 rounded focus:outline-none focus:border-blue-600">
+
+            <!-- Email -->
+            <label class="text-gray-700">Email</label>
+            <input type="text" id="email"
+                class="w-full border border-blue-300 p-2 mb-3 rounded focus:outline-none focus:border-blue-600">
+
+            <!-- Password -->
+            <label class="text-gray-700">Password</label>
+
+            <div class="flex gap-2 mb-3">
+                <input type="password" id="password"
+                    class="w-full border border-blue-300 p-2 rounded focus:outline-none focus:border-blue-600">
+
+                <button type="button" onclick="showPassword()"
+                    class="bg-blue-500 hover:bg-blue-600 text-white px-3 rounded">
+                    Show
+                </button>
+            </div>
+
+            <!-- Mobile -->
+            <label class="text-gray-700">Mobile Number</label>
+            <input type="text" id="mobile"
+                class="w-full border border-blue-300 p-2 mb-4 rounded focus:outline-none focus:border-blue-600">
+
+            <button type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded">
+                Register
+            </button>
+
+            <p id="message" class="mt-4 text-center"></p>
+
+        </form>
+    </div>
+
+
+    <script>
+
+        function showPassword() {
+            let password = document.getElementById("password");
+            let button = event.target;
+
+            if (password.type === "password") {
+                password.type = "text";
+                button.innerHTML = "Hide";
+            } else {
+                password.type = "password";
+                button.innerHTML = "Show";
+            }
+        }
+
+
+        document.getElementById("registrationForm").onsubmit = function(event) {
+
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let mobile = document.getElementById("mobile").value;
+
+            let message = document.getElementById("message");
+
+            // Mandatory fields
+            if (name == "" || email == "" || password == "" || mobile == "") {
+                message.innerHTML = "Please fill all fields.";
+                message.className = "mt-4 text-center text-red-500";
+                return;
+            }
+
+            // Email validation
+            if (!email.includes("@") || !email.includes(".")) {
+                message.innerHTML = "Enter a valid email.";
+                message.className = "mt-4 text-center text-red-500";
+                return;
+            }
+
+            // Password validation
+            if (!password.includes("@")||!password.includes("#")||!password.includes("&")||!password.includes("^")||!password.includes("!")||password.length < 10) {
+                message.innerHTML = "Password must be at least 8 characters and should have least one special character.";
+                message.className = "mt-4 text-center text-red-500";
+                return;
+            }
+            //this is also good
+            //  if (!password.includes("QWERTYUIOPASDFGHJKLZXCVBNM")||!password.includes("qwertyuiopasdfghjklzxcvbnm")||!password.includes("1234567890")||!password.includes("!@#$%^&**()") ||password.length < 10) {
+            //     message.innerHTML = "Password must be at least 8 characters and should have least one special character.";
+            //     message.className = "mt-4 text-center text-red-500";
+            //     return;
+            // }
+
+
+            // Mobile validation
+            if (mobile.length != 10 || isNaN(mobile)) {
+                message.innerHTML = "Enter a valid 10-digit mobile number.";
+                message.className = "mt-4 text-center text-red-500";
+                return;
+            }
+
+            // Success
+            message.innerHTML = "Registration Successful!";
+            message.className = "mt-4 text-center text-green-500";
+
+        };
+
+    </script>
+
+</body>
+</html>
+```
