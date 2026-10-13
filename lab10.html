@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Expense Tracker</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-r from-slate-900 via-teal-800 to-slate-900 flex items-center justify-center p-4">
+
+    <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-md">
+
+        <h1 class="text-3xl font-bold text-center text-teal-800 mb-2">
+            Expense Tracker
+        </h1>
+
+        <p class="text-center text-gray-500 mb-6">
+            Manage Your Daily Expenses
+        </p>
+
+        <!-- Total Expense -->
+        <div class="bg-teal-100 p-5 rounded-lg text-center mb-6">
+            <p class="text-gray-600">Total Expenses</p>
+
+            <h2 id="total" class="text-3xl font-bold text-teal-800">
+                ₹0
+            </h2>
+        </div>
+
+        <!-- Expense Name -->
+        <input type="text" id="expenseName"
+            placeholder="Enter expense name"
+            class="w-full border rounded-lg p-3 mb-3">
+
+        <!-- Amount -->
+        <input type="number" id="amount"
+            placeholder="Enter amount"
+            min="1"
+            class="w-full border rounded-lg p-3 mb-3">
+
+        <!-- Category -->
+        <select id="category"
+            class="w-full border rounded-lg p-3 mb-4">
+
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Education">Education</option>
+            <option value="Other">Other</option>
+
+        </select>
+
+        <!-- Add Button -->
+        <button onclick="addExpense()"
+            class="w-full bg-teal-700 hover:bg-teal-800 text-white py-3 rounded-lg mb-6">
+
+            Add Expense
+
+        </button>
+
+        <!-- Expense List -->
+        <h2 class="text-xl font-bold text-gray-800 mb-3">
+            Expense History
+        </h2>
+
+        <ul id="expenseList" class="space-y-3">
+        </ul>
+
+        <p class="text-center text-gray-400 text-sm mt-6">
+            Developed by Aaradhy Nimbalkar
+        </p>
+
+    </div>
+
+    <script>
+
+        let totalExpense = 0;
+
+        function addExpense() {
+
+            let name = document.getElementById("expenseName").value;
+            let amount = Number(document.getElementById("amount").value);
+            let category = document.getElementById("category").value;
+
+            if (name.trim() == "" || amount <= 0) {
+                alert("Please enter valid expense details");
+                return;
+            }
+
+            // Add amount to total
+            totalExpense = totalExpense + amount;
+
+            document.getElementById("total").innerText =
+                "₹" + totalExpense;
+
+            // Create list item
+            let li = document.createElement("li");
+
+            li.className =
+                "bg-gray-100 p-3 rounded-lg flex justify-between items-center gap-2";
+
+            let details = document.createElement("span");
+
+            details.innerText =
+                name + " (" + category + ") - ₹" + amount;
+
+            details.className = "text-sm text-gray-800 break-words";
+
+            // Delete Button
+            let deleteBtn = document.createElement("button");
+
+            deleteBtn.innerText = "Delete";
+
+            deleteBtn.className =
+                "bg-red-500 text-white px-3 py-1 rounded-lg text-sm";
+
+            deleteBtn.onclick = function() {
+
+                totalExpense = totalExpense - amount;
+
+                document.getElementById("total").innerText =
+                    "₹" + totalExpense;
+
+                li.remove();
+            };
+
+            li.appendChild(details);
+            li.appendChild(deleteBtn);
+
+            document.getElementById("expenseList").appendChild(li);
+
+            // Clear Inputs
+            document.getElementById("expenseName").value = "";
+            document.getElementById("amount").value = "";
+
+        }
+
+    </script>
+
+</body>
+</html>
